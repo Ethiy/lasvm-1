@@ -1,0 +1,7 @@
+# Git Ignore
+
+# Build folder
+build
+
+# VS Code
+.vscode
