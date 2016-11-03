@@ -1,0 +1,19 @@
+Possible architecture
+
+lasvm/
+    |-- src
+      |-- /Errors
+      |-- /Instance
+      |-- /IO
+      |-- /Core
+      |-- /Caches
+      |-- /CLI
+    |-- tests
+      |-- /Errors
+      |-- /Instance
+      |-- /IO
+      |-- /Core
+      |-- /Caches
+      |-- /CLI
+    |-- ressources
+ 
