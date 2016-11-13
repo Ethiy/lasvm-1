@@ -33,6 +33,11 @@ namespace lasvm
         Instance& operator+=( const Instance<real_t> &);
         Instance& operator-=( const Instance<real_t> &);
 
+        typedef std::map<size_t, real_t>::iterator iterator;
+        typedef std::map<size_t, real_t>::const_iterator const_interator;
+        iterator begin( void);
+        iterator end( void);
+
     private:
         std::map<size_t,real_t> vector;
         size_t length;

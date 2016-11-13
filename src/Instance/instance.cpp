@@ -14,8 +14,20 @@ namespace lasvm
     }
     template<typename real_t> Instance<real_t>::~Instance( void){}
 
+    // ---------------------------- Iterators -----------------------------------------------------------
+    template<typename real_t>
+    Instance<real_t>::iterator begin(void)
+    {
+        return vector.begin();
+    }
 
-    // ------------------- Copy-Swap implementation ----------------------------------------------------
+    template<typename real_t>
+    Instance<real_t>::iterator end( void)
+    {
+        return vector.end();
+    }
+
+    // ------------------- Copy-Swap implementation -----------------------------------------------------
     template<typename real_t>
     void Instance<real_t>::swap( const Instance<real_t> & other) throw()
     {
