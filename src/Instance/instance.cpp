@@ -6,7 +6,7 @@ namespace lasvm
     // ------------ Constructors: void, std::string, copy and move --------------------------------------
     template<typename real_t> Instance<real_t>::Instance( void):length(0) {}
     template<typename real_t> Instance<real_t>::Instance( const Instance<real_t> &other): 
-                                                            length(other.length), vector(other.vector){}
+                                                        length(other.length), vector(other.vector){}
     template<typename real_t> Instance<real_t>::Instance( Instance<real_t> && other ) noexcept
     {
         length = std::move( other.length);
@@ -87,21 +87,21 @@ namespace lasvm
 
     //--------------------------- Operators: +, -, * ----------------------------------------------------
     template<typename real_t> 
-    Instance<real_t> operator+( Instance<real_t> lhs, const Instance<real_t> & rhs)
+    Instance<real_t> operator+( Instance<real_t> lhs, Instance<real_t> rhs)
     {
         lhs += rhs;
         return lhs;
     }
 
     template<typename real_t> 
-    Instance<real_t> operator-( Instance<real_t> lhs, const Instance<real_t> & rhs)
+    Instance<real_t> operator-( Instance<real_t> lhs, Instance<real_t> rhs)
     {
         lhs -= rhs;
         return lhs;
     }
 
     template<typename real_t>
-    real_t operator*( Instance<real_t> lhs, const Instance<real_t> & rhs)
+    real_t operator*( Instance<real_t> lhs, Instance<real_t> rhs)
     {
         std::vector<real_t> mapped;
         std::transform( std::begin(lhs.vector), std::end(lhs.vector), std::begin(mapped),

@@ -39,4 +39,12 @@ namespace lasvm
 
         friend std::ostream & operator<<( std::ostream &, const Instance<real_t> &);
     };
+
+    template<typename real_t> void swap( Instance<real_t>, Instance<real_t>);
+    template<typename real_t> Instance<real_t> operator+( Instance<real_t>, const Instance<real_t>);
+    template<typename real_t> Instance<real_t> operator-( Instance<real_t>, const Instance<real_t>);
+    template<typename real_t> real_t operator*( Instance<real_t>, Instance<real_t>);
+    template<typename real_t> bool operator==( Instance<real_t>, Instance<real_t>);
+    template<typename real_t> bool operator!=( Instance<real_t>, Instance<real_t>);
+
 }
