@@ -157,7 +157,12 @@ namespace lasvm
     template<typename real_t>
     std::ostream & operator<<( std::ostream & os, const Instance<real_t> & instance)
     {
-        os << <<;
+        std::for_each(std::begin(instance.vector), std::end(instance.vector),
+                        [&os](std::pair<size_t,real_t> p)
+                            {
+                                os << p.first << ':' << p.second << std::endl;
+                            } 
+                    );
         return os;
     }
 
