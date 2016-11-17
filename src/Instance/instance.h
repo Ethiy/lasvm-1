@@ -43,6 +43,9 @@ namespace lasvm
         size_t length;
 
         friend std::ostream & operator<<( std::ostream &, const Instance<real_t> &);
+        friend libsvm_ostream & operator<<( libsvm_ostream &, const Instance<real_t> &);
+        friend csv_ostream & operator<<( csv_ostream &, const Instance<real_t> &);
+        friend binary_ostream & operator<<( binary_ostream &, const Instance<real_t> &);
     };
 
     template<typename real_t> void swap( Instance<real_t>, Instance<real_t>);
