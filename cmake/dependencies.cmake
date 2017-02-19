@@ -1,9 +1,27 @@
-include(cmake/3rdParty.cmake)
+set(LIBS "")
+set(LIBS_DIRS "")
 
-set(LaSVM_LINKER_LIBS "")
-set(EXT_PROJECTS_DIR 3rdParty)
+# Find Boost
+FIND_PACKAGE(Boost REQUIRED filesystem system)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIR})
+else(Boost_FOUND)
+    set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:/local/boost_1_60_0/")
+    set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:/local/boost_1_60_0/lib64-msvc-14.0")
+    Find_PACKAGE(Boost REQUIRED filesystem)
+    if(Boost_FOUND)
+        INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
+    endif(Boost_FOUND)
+endif(Boost_FOUND)
 
-# ------------- Catch -------------
+set(Boost_USE_STATIC_LIBS        OFF)
+set(Boost_USE_MULTITHREADED      ON)
+set(Boost_USE_STATIC_RUNTIME     OFF)
+set(BOOST_ALL_DYN_LINK           OFF)
 
-add_subdirectory(${EXT_PROJECTS_DIR}/catch)
-include_directories(${CATCH_INCLUDE_DIR} ${COMMON_INCLUDES})
+include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+list(APPEND LIBS ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY})
+
+# Find Catch
+include(cmake/modules/catch.cmake)
+enable_testing(true)
